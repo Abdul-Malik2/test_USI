@@ -1,0 +1,28 @@
+@keyframes departure-title
+    0%
+        transform: translateY(50px)
+        opacity: .1
+    60%
+        transform: translateY(-5px)
+        // visibility: visible
+        opacity: 1
+    100%
+        opacity: 1
+        // visibility: visible
+
+@keyframes departure-circle
+    0%
+        transform: scale(0)
+        visibility: hidden 
+    100%
+        transform: scale(100%)
+        visibility: visible
+        
+@keyframes departure-left-right
+        0%
+            transform: scaleX(0)// Начинаем с нуля
+            visibility: hidden 
+        
+        100%
+            transform: scaleX(1) // Увеличиваем до 100%
+            visibility: visible

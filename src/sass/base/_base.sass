@@ -1,0 +1,43 @@
+
+
+*, ::after, ::before
+    margin: 0
+    padding: 0
+    box-sizing: border-box // сбрасываем все заводские отступы
+
+html
+    // font-size: 62.15% // чтобы 1 rem был равен НЕ 16рх(как по умолчанию), а 10рх, но в этом случае слабовидящий пользователь не сможет увеличивать шрифт через настройки браузера. В этом случае можно задать 62.5% чтобы пользователь мог увеличивать размер шрифта через браузер.
+    //font-family: 'MyCustomFont'
+    // @include respond(tab-land) // если в аргументе указанно свойство max-width, то свойсва адаптации (@include) мы начинаем прописывать сверху вниз, т.е. от самого большего экрана в описании которому было ипользованно свойство max-width, к самому маленькому. А если в описании аргумента было применено свойство min-width т.е. свойсва адаптации (@include) мы начинаем прописывать снизу вверх, т.е. от самого маленького экрана к большему.  Если это правило будет проигнорированно, то свйства адаптации не сработают
+    //     font-size: 56.25% // 9px
+
+    // @include respond(tab-port)
+    //     font-size: 50% //
+
+    // @include respond(phone)
+    //     font-size: 30%
+
+    // @include respond(big-screen) // это самый большёй экран, но указан в самом конце, потомучто в описании его аргумента было применено свойство min-width
+    //     font-size: 75%
+
+body
+    font-family: 'MyCustomFont-Regular'
+    block-size: border-box
+    position: relative
+
+    // perspective: 1000px
+    transform-style: preserve-3d
+    overflow-y: scroll
+    overflow-x: hidden
+
+.container
+    background-color:  $color-gray-light-F4F6FB 
+    max-width: 1920px
+    margin: 0 auto 
+    //position: relative
+    padding: 0 80px
+    //overflow: hidden
+    @include respond(tab-port)
+        padding: 0
+
+

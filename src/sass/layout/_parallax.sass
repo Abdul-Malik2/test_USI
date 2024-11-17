@@ -1,0 +1,111 @@
+.parallax
+    height: 800px
+    max-width: 1760px
+    overflow: hidden
+    position: relative
+    opacity: 0
+    animation-fill-mode: forwards
+    animation-duration: 2s // если не указать время анимация не заработает
+    animation-delay: .1s// задержка анимации чтобы сайт успел прогрузиться
+    animation-timing-function: ease // чтобы анимация была плавная
+    backface-visibility: hidden //на всякий случай, чтобы анимация не глючила
+    margin-bottom: 175px
+    transition: 1s all
+    transform-style: preserve-3d
+
+    @include respond(tab-port)
+        margin: 0 17px 110px
+    @include respond(phone)
+        height: 380px
+.section-parallax
+    width: 110%
+    height: 140%
+    top: -20%
+    bottom: -20%
+    left: -5%
+    right: -10%
+    background: url(../img/parallax_img.jpg) center / cover no-repeat
+    position: relative
+    opacity: 0
+    transition: transform 1s ease
+    animation-fill-mode: forwards
+    animation-duration: 2s // если не указать время анимация не заработает
+    animation-delay: .1s// задержка анимации чтобы сайт успел прогрузиться
+    animation-timing-function: ease // чтобы анимация была плавная
+    backface-visibility: hidden //на всякий случай, чтобы анимация не глючила
+    // transform-style: preserve-3d
+    // transform: translateZ(-1px)
+    &__tinting
+        width: 100%
+        height: 100%
+        background-color: black
+        opacity: .5
+        position: absolute
+        top: 0
+        left: 0
+    &__title-box
+        position: absolute
+        color: white
+        top: 40%
+        left: 50%
+        transform: translate(-50%, -50%) translateZ(0)
+        display: flex
+        flex-direction: column
+        transition: 1s all
+        will-change: transform // Для оптимизации производительности
+        animation: slow-scroll 1s forwards
+    &__title-wrapper
+        overflow: hidden
+    &__title
+        font-size: clamp(20px, 5vw, 60px)
+        margin-bottom: 10px
+        padding: 10px
+        opacity: 0
+        transition: transform .5s ease
+        // animation-name:  departure-title
+        animation-fill-mode: forwards
+        animation-duration: 3s // если не указать время анимация не заработает
+        animation-delay: 2s// задержка анимации чтобы сайт успел прогрузиться
+        animation-timing-function: ease // чтобы анимация была плавная
+        backface-visibility: hidden //на всякий случай, чтобы анимация не глючила
+        @include respond(phone)
+            margin-bottom: 5px
+    &__decor-box
+        display: flex
+        align-items: center
+        width: 100%
+        justify-content: space-around
+        border-radius: 100px
+    &__decor-left,
+    &__decor-right
+        height: 2px
+        width: 30%
+        background-color: white
+        transform-origin: right
+        visibility: hidden 
+        // animation-name:  departure-left-right
+        animation-fill-mode: forwards
+        animation-duration: 1s // если не указать время анимация не заработает
+        animation-delay: 1.5s// задержка анимации чтобы сайт успел прогрузиться
+        animation-timing-function: ease // чтобы анимация была плавная
+        backface-visibility: hidden //на всякий случай, чтобы анимация не глючила
+    &__decor-left
+        transform-origin: right
+    &__decor-right
+        transform-origin: left
+    &__decor-center
+        height: 10px
+        width: 10px
+        visibility: hidden 
+        // animation-name: departure-circle
+        animation-fill-mode: forwards
+        animation-duration: 1s // если не указать время анимация не заработает
+        animation-delay: 1s// задержка анимации чтобы сайт успел прогрузиться
+        animation-timing-function: ease // чтобы анимация была плавная
+        backface-visibility: hidden //на всякий случай, чтобы анимация не глючила
+        @include respond(phone)
+            height: 10px
+            width: 10px
+        background-color: white
+        border-radius: 100px
+        

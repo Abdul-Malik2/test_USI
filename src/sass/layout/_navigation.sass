@@ -1,0 +1,391 @@
+.sticky
+    position: sticky
+    top: 0
+    left: 0
+    right: 0
+    //opacity: .8
+    transition: .7s all
+
+.navigation
+    z-index: 3
+    height: 152px
+    display: flex
+    width: 100%
+    max-width: 1760px
+    padding: 48px 0px
+    align-items: center
+    background-color: $color-gray-light-F4F6FB
+    margin: 0 auto
+    @include respond(tab-port)
+        padding: 26px 17px 
+        height: 86px
+
+    &__toggle
+        display: none
+    &__button
+        //background: $color-white
+        height: 36px
+        width: 36px
+        // margin-bottom: 1.47px
+        z-index: 20
+        text-align: center // центрируем его дочерний элемент (гамбургер)
+        cursor: pointer //  чтобы при наведении стрлочка превращалась в руку
+        display: flex
+        align-items: center
+
+    &__background
+        width: 4rem
+        height: 4rem
+        // border-radius: 50%
+        //background: $color-white // в отличии от линейного градиента, radial-gradient расходится по кругу
+        position: fixed
+        left: 0rem
+        top: 0rem
+        z-index: 1
+        transition: .7s all
+
+    &__nav
+        position: fixed
+        display: flex
+        background: $color-white
+        top: 152px
+        right: 0
+        z-index: 15
+        transition: .3s all cubic-bezier(0.68, -0.6, 0.32, 1.6) // cubic-bezier свойство устанавливающее временные промежутки активности анимации (можно выбрать на сайте cubic-bezie.com)
+        opacity: 0
+        width: 100vw
+
+    &__img
+        height: 50%
+        width: 50vw 
+
+    &__toggle:checked ~ &__background
+        transform: scale(80) // при нажатии на &__toggle соседний &__background увеличивается в scale(раз) раз
+
+    &__toggle:checked ~ .pop-up-menu
+        left: 0
+        transition: .7s all
+        //transition: 1.2s all cubic-bezier(0.68, -0.6, 0.32, 1.3) // cubic-bezier свойство устанавливающее временные промежутки активности анимации (можно выбрать на сайте cubic-bezie.com)
+        @include respond(tab-port)
+            top: 86px
+        @include respond(phone)
+            //transition: .7s all
+            transition: 1.2s all cubic-bezier(0.68, -0.6, 0.32, 1.3) // cubic-bezier свойство устанавливающее временные промежутки активности анимации (можно выбрать на сайте cubic-bezie.com)
+
+    &__toggle:checked ~ .title-menu
+        display: none
+        transition: .7s all
+    
+    &__toggle:checked ~ .top__button
+        display: none
+        transition: .7s all
+
+    &__toggle:checked ~ .title-fly
+        margin-left: 366.102px
+        @include respond(tab-port)
+            margin-left: 0
+
+    &__toggle:checked ~ .navigation
+        opacity: 1
+    &__icon
+        position: relative
+        // margin-top: 15px
+        
+
+        &::before, // первая полоска гамбургера
+        &,        // вторая полоска гамбургера
+        &::after // третья полоска гамбургера
+            width: 36px
+            height: 1.8px
+            display: inline-block // чтобы было легче анимировать
+            background: $color-black
+        &::before,
+        &::after
+            content: "" // без этого псевдоэлемент не появится
+            position: absolute
+            left: 0
+            transition: .3s all
+        &::before
+            top: -5px
+        &::after
+            top: 5px
+    &__button:hover &__icon::before // при наведении на button воздействуем на before
+        top: -10px
+        
+    &__button:hover &__icon::after // при наведении на button воздействуем на after
+        top: 10px
+    &__toggle:checked + &__button &__icon // при нажатии на &__toggle воздействие оказывается на дочерний элемент &__button, а именно на &__icon
+        background: transparent
+
+    &__toggle:checked + &__button &__icon::before // при нажатии на &__toggle воздействие оказывается на дочерний элемент &__button,а именно на псевдоэлемент &__icon, а именно на befor
+        transform: rotate(135deg)
+        top: 0
+        transition: .7s all
+    &__toggle:checked + &__button &__icon::after // при нажатии на &__toggle воздействие оказывается на дочерний элемент &__button, а именно на псевдоэлемент &__icon, а именно на after
+        transform: rotate(-135deg)
+        top: 0
+        transition: .7s all
+
+.hover-active-effect
+    background: linear-gradient(120deg, $color-brown-light 50%, transparent 0%, transparent 50%)
+    background-size: 220%
+    background-position: 100%
+    transition: 1s all
+    //display: inline-block // чтобы работала анимация
+    &:hover, &:active
+        background-position: 0%//100%
+        color: $color-white
+        transform: translateX(10px)
+
+
+.pop-up-menu
+    position: absolute
+    // width: 0
+    max-width: 1920px
+    height: 960px
+    //border: 1px solid black
+    background-color:  $color-gray-light-F4F6FB 
+    display: grid
+    grid-template-columns: 40% 1fr
+    z-index: 111
+    top: 152px//145.6px
+    left: -500%
+    right: 0
+    margin: 0 auto 
+    transition: .7s all
+    @include respond(tab-port)
+        height: 1100px
+        grid-template-rows: 40% 60%
+        grid-template-columns: auto
+        top: 86px
+        @include respond(phone)
+            height: 1186px
+            grid-template-rows: 250px 838px
+            top: -50%
+            left: 0
+            transition: 1.2s all cubic-bezier(0.68, -0.6, 0.32, 1.3) // cubic-bezier свойство устанавливающее временные промежутки активности анимации (можно выбрать на сайте cubic-bezie.com)
+            //transition: 1s all
+
+    &__wrapper-left
+        background: url(../img/menu_img.jpg) center / cover no-repeat
+        @include respond(tab-port)
+            background: url(../img/menu_img_m.jpg) center / cover no-repeat
+        
+    &__wrapper-right
+        //background-color: #97f899 //$color-gray-light-F4F6FB 
+        display: flex
+        justify-content: end
+        align-items: end
+        padding-right: 80px
+        @include respond(tab-port)
+            padding: 60px 17px
+            justify-content: center
+            align-items: start
+        @include respond(phone)
+            padding: 0
+            margin: 48px 17px 98px
+            justify-content: start
+
+    &__wrapper-content
+        display: grid
+        //background-color: #ed8ffc
+        height: 605px
+        margin-left: 80px
+        margin-bottom: 180px
+        grid-template-columns: repeat(2, 45.2%)
+        justify-content: space-between
+        @include respond(tab-port)
+            display: flex
+            width: 100%
+            justify-content: space-evenly
+            margin: 0
+        @include respond(phone)
+            display: flex
+            flex-direction: column
+            justify-content: start
+        // &_left-colum
+        // &_right-colum
+        &_items
+            text-transform: uppercase
+            &:not(:last-child)
+                margin-bottom: 64px
+            @include respond(phone)
+                &:not(:last-child)
+                    margin-bottom: 32px
+                
+        &_item-1
+            font-size: 32px
+            line-height: 51px
+            &:not(:last-child)
+                margin-bottom: 16px
+            @include respond(tab-land)
+                font-size: 24px
+                line-height: 38.4px
+        &_item-2
+            font-size: 24px
+            line-height: 38px
+            color: $color-gray-dark-A5A2AC
+            &:not(:last-child)
+                margin-bottom: 16px
+            @include respond(tab-land)
+                font-size: 16px
+                line-height: 24px
+
+
+
+.title-menu 
+    font-size: 16px
+    color: $color-gray-dark-A5A2AC
+    margin-left: 16px
+    cursor: pointer
+    -webkit-text-stroke-color: translate
+    @include respond(tab-port)
+        display: none
+
+
+
+.top
+    &__button
+        height: 56px
+        width: 250px
+        position: relative
+        border-radius: 60px
+        // padding: 24px 64px
+        border: 1px solid black
+        margin-left: 48px
+        transition: all .5s
+        display: inline-block
+        gap: 8px
+        color: white
+        display: flex
+        align-items: center
+        overflow: hidden
+        &_link
+            &, &:link, &:visited 
+                text-decoration: none
+                text-align: center
+                align-content: center
+                height: 24px
+                width: 155px
+                color: black
+                font-size: 16px
+                line-height: 24px
+                font-weight: 500
+                flex: 1
+                height: 100%
+                // position: relative
+            &:hover,  &:active
+                color: white
+                background-color: black
+        @include respond(tab-port)
+            display: none
+            
+        &:hover // чтобы hover и active взаимодействовали, hover ДОЛЖЕН НАЗНАЧАТЬСЯ РАНЬШЕ active
+            transform: translateY(-.5rem)
+            box-shadow: $box-shadow
+            
+            
+            
+            
+
+        &:active
+            transform: translateY(.5rem)
+            // чтобы hover и active взаимодействовали, hover ДОЛЖЕН НАЗНАЧАТЬСЯ РАНЬШЕ active
+            box-shadow: $box-shadow
+        //     &::after
+        //         transform: scaleX(1.5) scaleY(1.8) // при наведении расширяет наш псевдоэлемент по оси Х и оси У
+        //         opacity: 0
+        
+        // &::after // дочерний псевдоэлемент
+        //     content: "" // обязательно надоуказать (хотябы пустой) иначе псевдоэлемент не сработает
+        //     background-color: $color-gray
+        //     width: 100%
+        //     height: 100%
+        //     border-radius: 5rem
+        //     display: inline-block
+        //     position: absolute
+        //     top: 0
+        //     left: 0
+        //     z-index: -10
+        //     transition: all .3s
+                
+.title-fly
+    font-size: 41.39px
+    flex-grow: 1
+    text-align: center
+    font-weight: 400
+    -webkit-text-stroke-color: translate
+    user-select: none
+
+
+.navigation__wrapper
+    margin-left: auto
+    cursor: pointer
+    // @include respond(phone)
+    //     margin-left: 0
+
+.title-phone
+    font-size: 16px
+    color: $color-gray-dark-A5A2AC
+    cursor: pointer
+
+    @include respond(tab-port)
+            display: none
+    
+
+.title-coll
+    font-size: 16px
+    color: black
+    margin-left: 64px
+    @include respond(tab-port)
+        display: none
+
+.phone
+    &__wrapper
+        height: 56px
+        width: 56px
+        border: 1px solid $color-black
+        border-radius: 100px
+        display: none
+        @include respond(tab-port)
+            display: flex
+            align-items: center
+            justify-content: center
+        &:hover // чтобы hover и active взаимодействовали, hover ДОЛЖЕН НАЗНАЧАТЬСЯ РАНЬШЕ active
+            border: 1px solid white
+            background-color: $color-black
+            box-shadow:(0px 0px 15px 8px rgba(0, 0, 0, 0.5))      
+            transition: .5s all
+        &:active
+            transform: translateY(5px)
+            transition: .5s all
+
+            // чтобы hover и active взаимодействовали, hover ДОЛЖЕН НАЗНАЧАТЬСЯ РАНЬШЕ active
+            
+.phone__wrapper:hover ._icon-coll
+    color: white
+    transition: .5s all
+    font-size: 22px
+    rotate: 360deg
+    transition: 1s all
+
+.phone__wrapper:active ._icon-coll
+    color: white
+    transition: .5s all
+    font-size: 22px
+    rotate: 360deg
+    transition: 1s all
+
+._icon-coll
+    font-size: 19.93px
+    position: relative
+    display: inline
+    align-items: center
+    margin: 0 auto
+    -webkit-tap-highlight-color: transparent
+    -webkit-tap-highlight-color: rgba(0,0,0,0)
+    -webkit-touch-callout: none
+    -ms-user-select: none
+    -moz-user-select: none
+    -khtml-user-select: none
+    user-select: none

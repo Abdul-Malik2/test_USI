@@ -1,0 +1,30 @@
+// .section-about
+//     padding-top: 8rem
+//     //margin-bottom: 20rem // так и не смог разобраться почему не работает, реализовал в .section-adventure через margin-top:
+
+// .section-adventure
+//     margin-top: 20rem // добавил потому что так и не смог разобраться почему не работает margin-bottom в .section-about
+//     @include respond(tab-land) // адаптив
+//         margin-top: 12rem
+//     @include respond(tab-port) // адаптив
+//         margin-top: 35rem
+//     padding: 21rem 0
+//     background: linear-gradient(90deg, rgba($color-brown-light, 0.7), rgba($color-black, 0.7)), url(../img/section-adventure.jpg) center / cover no-repeat
+//     transform: skewY(7deg) // чтобы согнуть фон
+//     & > * // создаём действие на потомка, и задём ему обратное свойство, чтобы потомки т.е. карточки не сгибались вместе с фоном
+//         transform: skewY(-7deg)
+//     @include respond(tab-land) // адаптив
+//         padding: 15rem 0
+
+// .section-tour
+//     padding-top: 10rem
+//     margin-bottom: 8rem
+
+// .section-feetBack
+//     padding-top: 8rem
+//     position: relative
+//     padding: 8rem 0
+
+// .section-book
+//     padding: 10rem
+//     background: linear-gradient(90deg, $color-brown-light, $color-brown-dark)

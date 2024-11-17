@@ -1,0 +1,274 @@
+// @include respond(tab-land) //(max-width: 1240px)
+// @include respond(tab-port) //(max-width: 900px)
+// @include respond(phone) // (max-width: 600px)
+.claster-10
+    display: flex
+    justify-content: space-between
+    margin-bottom: 73.55px
+    @include respond(tab-port)
+        padding: 0 17px
+    @include respond(tab-port)
+        flex-direction: column-reverse
+
+    @include respond(phone)
+        flex-direction: column-reverse
+        margin-bottom: 0
+
+.wrap-text
+    display: flex
+    flex-direction: column
+    @include respond(tab-port)
+        margin: 0 auto
+        display: none
+    //@include respond(phone)
+        //margin: 0 auto
+        display: none
+    &__phone
+        display: none
+        // @include respond(phone)
+        @include respond(tab-port)
+
+            display: flex
+            flex-direction: column
+            margin: 0 auto
+.span__phone
+    font-size: 14px
+    font-weight: 400
+    line-height: 18.2px
+    text-transform: uppercase
+    // display: flex
+    // flex-wrap: wrap
+    // align-items: center
+    // justify-content: start
+    margin-bottom: 24px
+    &_1:not(:last-child)     
+        margin-bottom: 16px
+
+.span1
+    font-size: 14px
+    font-weight: 400
+    line-height: 18.2px
+    text-transform: uppercase
+    margin-bottom: 16px
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: start
+.span2
+    font-size: 14px
+    font-weight: 400
+    line-height: 8.2px
+    margin-bottom: 24px
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: start
+
+.buffer-width
+    width: 6.73px
+
+.span-defis
+    height: 1px
+    width: 20px
+    background: $color-black
+    display: inline-block 
+    
+.span3
+    font-size: 24px
+    font-weight: 500
+    line-height: 38.4px
+    margin-bottom: 24px
+.claster__btn, .claster__btn_phone
+    &, &:link, &:visited 
+        text-decoration: none
+        display: inline-block
+        height: 69px
+        width: 308px
+        position: relative
+        border-radius: 50px
+        background-color: black
+        color: white
+        border: 1px solid black
+        font-size: 16px
+        font-weight: 500
+        line-height: 24px
+        text-align: center
+        align-content: center
+        border: none
+        transition: all .5s
+    &_phone
+        @include respond(phone)
+            align-self: center
+            margin-bottom: 110px
+    
+    &:hover 
+        transform: translateY(-.5rem)
+        box-shadow: $box-shadow
+        
+    &:active
+        transform: translateY(.5rem)
+        // чтобы hover и active взаимодействовали, hover ДОЛЖЕН НАЗНАЧАТЬСЯ РАНЬШЕ active
+        box-shadow: $box-shadow
+        background-color: white
+        color: black
+        &::after
+            transform: scaleX(1.5) scaleY(1.8) // при наведении расширяет наш псевдоэлемент по оси Х и оси У
+            opacity: 0
+
+    &::after // дочерний псевдоэлемент
+        content: "" // обязательно надоуказать (хотябы пустой) иначе псевдоэлемент не сработает
+        background-color: black
+        width: 100%
+        height: 100%
+        border-radius: 5rem
+        display: inline-block
+        position: absolute
+        top: 0
+        left: 0
+        z-index: -1
+        transition: all .3s
+            
+
+
+.claster-title
+    //color: red
+    align-self: center
+    font-size: 144px
+    font-weight: 500
+    line-height: 216px
+    @include respond(norm-screen)
+        font-size: 120px
+    @include respond(tab-land)
+        font-size: 90px
+    @include respond(tab-port)
+        font-size: 64px
+        line-height: 96px
+
+    @include respond(phone)
+        width: 380px
+        font-size: 64px
+        line-height: 96px
+        margin-bottom: 24px
+
+    
+.about_houses
+    display: flex
+    max-width: 1760px
+    justify-content: space-between
+    margin: 0 153px
+    //overflow: hidden
+
+    @include respond(tab-land)
+        margin: 0 17px
+        flex-direction: column
+    @include respond(phone)
+        padding: 0
+    &__decor
+        display: block
+        width: 73px
+        height: 11px
+        background-color: $color-gray-accen-D1CDDA
+        margin-bottom: 64px
+    &__wrapper1
+        max-width: 687px
+        margin-right: 80px
+        @include respond(norm-screen)
+            width: 100%
+            margin: 0
+        &_title
+            font-size: 64px
+            line-height: 96px
+            text-align: left
+            margin-bottom: 64px
+            font-weight: 500
+            @include respond(phone)
+                font-size: 32px
+                line-height: 51.2px
+                margin-bottom: 32px
+
+        &_text
+            font-size: 24px
+            line-height: 38.4px
+            font-weight: 500
+            margin-bottom: 118px
+            text-wrap: balance
+            @include respond(tab-land)
+                margin-bottom: 32px
+            @include respond(phone)
+                font-size: 16px
+                line-height: 24px
+                text-wrap: balance
+
+
+    &__wrapper2
+        max-width: 687px
+        @include respond(norm-screen)
+            width: 100%
+            margin: 0   
+        &_title
+            font-size: 24px
+            line-height: 38.4px
+            font-weight: 500
+            background-color: $color-gray-accen-D1CDDA
+            padding: 24px
+            margin-top: 47px 
+            margin-bottom: 64px
+            @include respond(tab-land)
+                display: none
+        &_title-phone
+            display: none
+            @include respond(tab-land)
+                display: block
+                margin: 0 0 32px 0
+            @include respond(phone)
+                font-size: 16px
+                line-height: 24px
+                margin-top: 0
+
+        &_content
+            display: flex
+            width: 100%
+            flex-wrap: wrap
+            justify-content: space-between
+
+.items
+    display: flex
+    width: calc( 50% - 11.5% )
+    justify-content: space-between
+    // flex-wrap: wrap
+    flex-direction: column
+    @include respond(phone)
+        width: calc( 50% - 9px )
+
+
+
+
+.item1
+    font-size: 32px
+    line-height: 51.2px
+    font-weight: 500
+    border-bottom: 1px solid black
+    margin-bottom: 24px
+    @include respond(tab-port)
+        font-size: 1.5rem
+    @include respond(phone)
+        font-size: 24px
+        line-height: 32px
+        white-space: nowrap
+
+
+    
+.item2
+    font-size: 16px
+    line-height: 24px
+    font-weight: 500
+    color:$color-gray-dark-A5A2AC
+    white-space: nowrap
+    margin-bottom: 64px
+    @include respond(phone)
+        font-size: 14px
+        line-height: 18px
+        margin-bottom: 32px
+        text-wrap: wrap
+
+

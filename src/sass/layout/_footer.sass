@@ -1,0 +1,278 @@
+.footer
+    display: flex
+    flex-direction: column
+    margin-bottom: 140px
+    @include respond(tab-port)
+        margin-bottom: 80px
+    &__wrapper-1
+        margin: 0 153px 64px
+        display: flex
+        @include respond(tab-land)
+            flex-direction: column
+            margin: 0 17px 32px
+        //&_titles
+
+        &_text
+            margin-top: 75px
+            margin-left: clamp(150px, 11vw, 207px)
+            @include respond(norm-screen)
+                margin-left: clamp(100px, 11vw, 150px)
+
+            @include respond(tab-land)
+                margin-left: 0
+                margin-top: 32px
+
+    &__decor
+        display: block
+        width: 73px
+        height: 11px
+        background-color: $color-gray-accen-D1CDDA
+        margin-bottom: 64px
+    &__title_1
+        font-size: 64px
+        line-height: 96px
+        font-weight: 500
+        @include respond(norm-screen)
+            font-size: 54px
+        @include respond(tab-land)
+            //margin: 0 0 32px 0
+        @include respond(phone)
+            font-size: 32px
+            line-height: 51.2px
+    &__title_2
+        font-size: 64px
+        line-height: 96px
+        font-weight: 500
+        color: $color-gray-dark-A5A2AC
+        @include respond(norm-screen)
+            font-size: 54px
+        @include respond(phone)
+            font-size: 32px
+            line-height: 51.2px
+    &__text
+        font-size: 24px
+        line-height: 38.4px
+        font-weight: 500
+        text-wrap: balance
+.slider 
+    overflow: hidden//auto // или scroll
+    height: 533px
+    width: 100%//calc(100% -  394px) // или фиксированная ширина, если нужно
+    position: relative
+    display: flex
+    flex-wrap: nowrap
+    align-items: flex-start
+    margin-left: 153px
+    flex-shrink: 1
+    flex-basis: auto
+    @include respond(tab-port)
+        flex-direction: column
+        height: content
+        height: 603px
+        width: calc(100% - 17px)
+        margin-left: 17px
+    @include respond(phone)
+        height: 470px
+    &__tools
+        height: 533px
+        width: 307px
+        background-color: $color-gray-light-F4F6FB
+        flex: 0 0 auto
+        position: absolute
+        z-index: 2
+        @include respond(tab-port)
+            position: relative
+            display: flex
+            flex-direction: row-reverse
+            height: 38px
+            width: 100%
+            justify-content: space-between
+            margin-bottom: 32px
+            align-items: center
+        &_count
+            height: 38px
+            width: 227px
+            margin-bottom: 114px
+            font-size: 24px
+            line-height: 38.4px
+            font-weight: 500
+            display: flex
+            flex-wrap: wrap
+            justify-content: space-around
+            @include respond(tab-port)
+                align-items: center
+                margin-bottom: 0
+                margin-right: 17px
+            @include respond(phone)
+                font-size: 16px
+                line-height: 24px
+                width: 120px
+                align-items: center
+                margin-bottom: 0
+                margin-right: 17px
+        //&_count-num
+        &_count-decor
+            display: inline-block
+            width: 139px
+            height: 1px
+            background: $color-gray-dark-A5A2AC
+            align-self: center
+            @include respond(phone)
+                width: 50px
+                
+
+        &_buttons
+            height: 296px
+            width: 140px
+            display: flex
+            flex-direction: column
+            
+            > *:not(:last-child)     
+                margin-bottom: 16px
+            @include respond(tab-port)
+                display: none
+        &_buttons-mobile
+            display: none
+            @include respond(tab-port)
+                display: flex
+                
+        &_button
+            height: 140px
+            width: 140px
+            border: 1px solid $color-gray-dark-A5A2AC
+            border-radius: 100px
+            font-size: 140px
+            position: relative
+            // // background: radial-gradient(circle, $color-black $color-black 0%, transparent 90%)
+            // background-color: transparent
+            // background-size: 0%
+            // background-position: center
+            // transition: background-size 1s ease
+
+            &::after
+                content: ''
+                position: absolute
+                top: 50%
+                left: 50%
+                height: 100%
+                width: 100%
+                background-color: $color-gray-accen-D1CDDA
+                border-radius: 100px // Круглая форма
+                transform: translate(-50%, -50%) scale(0) // Начальное состояние
+                transition: transform 1s ease // Переход
+                z-index: 0
+            &:hover::after
+                transform: translate(-50%, -50%) scale(0.8) // Заполнение до 90%
+                
+        
+        
+        &_button-circle
+            border-radius: 100px
+            background-color: $color-gray-accen-D1CDDA
+            width: 24px
+            height: 24px
+            &:not(:last-child)     
+                margin-right: 18px
+            @include respond(phone)
+                width: 16px
+                height: 16px
+                &:not(:last-child)     
+                    margin-right: 8px
+            
+    &__box-wrapper
+        //overflow: auto // hidden или scroll
+        // overflow: hidden
+        width: 100% // или фиксированная ширина, если нужно
+        display: flex
+        flex-wrap: nowrap
+        flex-shrink: 1
+        flex-basis: auto
+        position: absolute
+        z-index: 1
+        left: 307px
+        transition: all 1s
+        > *:not(:last-child)
+            margin-right: 80px
+        @include respond(tab-port)
+            position: relative
+            left: 0
+        @include respond(phone)
+            > *:not(:last-child)     
+                margin-right: 10px
+    &__box
+        height: 600px
+        width: 533px
+        //background-color: $color-gray-accen-D1CDDA
+        background: linear-gradient(to top,$color-black 50%, $color-gray-accen-D1CDDA 50%)
+        background-size: 100% 200% // Увеличиваем высоту для эффекта
+        background-position: 100% 0% // Изначально градиент скрыт
+        transition: background-position 1s ease // Плавный переход
+
+
+        padding: 32px
+        display: flex
+        flex-wrap: wrap
+        align-content: space-between
+        flex: 0 0 auto
+        @include respond(phone)
+            width: 315px
+            height: 400px
+        &_icon
+            font-size: 146.67px
+            color: $color-black
+        &_description
+            font-size: 24px
+            line-height: 38.4px
+            font-weight: 500
+            text-align: left
+            text-transform: uppercase
+            @include respond(phone)
+                font-size: 16px
+                line-height: 24px
+._icon-back
+    position: relative
+    z-index: 4
+.parent-mask
+    background-position: 0% 100% // При наведении градиент заполняется
+
+.child-mask
+    color: white
+
+// для заполнения контейров в слайдере
+// .hover-active-effect
+//     background: linear-gradient(to top,$color-brown-light 50%, transparent 50%)
+//     background-size: 100% 200% // Увеличиваем высоту для эффекта
+//     background-position: 100% 0% // Изначально градиент скрыт
+//     transition: background-position 1s ease // Плавный переход
+//     &:hover, &:active
+//         background-position: 0% 100% // При наведении градиент заполняется
+//         color: $color-white
+
+
+// .button {
+//     position: relative // Устанавливаем позицию для родителя
+//     height: 140px
+//     width: 140px
+//     border: 1px solid $color-gray-dark-A5A2AC
+//     border-radius: 100px
+//     font-size: 140px
+//     overflow: hidden // Прячем все, что выходит за пределы кнопки
+
+//     // Псевдоэлемент для фона
+//     &::after {
+//         content: ''
+//         position: absolute
+//         top: 50%
+//         left: 50%
+//         height: 100%
+//         width: 100%
+//         background-color: $color-black // Черный фон
+//         border-radius: 100px // Круглая форма
+//         transform: translate(-50%, -50%) scale(0) // Начальное состояние
+//         transition: transform 1s ease // Переход
+//     }
+
+//     &:hover::after {
+//         transform: translate(-50%, -50%) scale(0.9) // Заполнение до 90%
+//     }
+// }

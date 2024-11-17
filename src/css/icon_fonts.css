@@ -1,0 +1,63 @@
+@font-face {
+    font-family: "MyIconFont1";
+    src: url("icon_fonts/MyIconFont1.eot?vdjce9");
+    src: url("icon_fonts/MyIconFont1.eot?vdjce9#iefix")
+            format("embedded-opentype"),
+        url("icon_fonts/MyIconFont1.ttf?vdjce9") format("truetype"),
+        url("icon_fonts/MyIconFont1.woff?vdjce9") format("woff"),
+        url("icon_fonts/MyIconFont1.svg?vdjce9#MyIconFont1") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="_icon-"],
+[class*=" _icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: "MyIconFont1" !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+._icon-next:before {
+    content: "\e907";
+    position: relative;
+    z-index: 4;
+}
+._icon-back:before {
+    content: "\e908";
+    position: relative;
+    z-index: 4;
+}
+._icon-coll:before {
+    content: "\e900";
+}
+._icon-barrier:before {
+    content: "\e8fd";
+}
+._icon-camera:before {
+    content: "\e901";
+}
+._icon-click:before {
+    content: "\e902";
+}
+._icon-face:before {
+    content: "\e903";
+}
+._icon-phone:before {
+    content: "\e904";
+}
+._icon-usb:before {
+    content: "\e905";
+}
+._icon-wi-fi:before {
+    content: "\e906";
+}
